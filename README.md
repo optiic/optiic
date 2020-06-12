@@ -22,7 +22,7 @@
   <a href="https://optiic.dev">Site</a> | <a href="https://www.npmjs.com/package/optiic">NPM Module</a> | <a href="https://github.com/optiic/optiic">GitHub Repo</a>
   <br>
   <br>
-  <strong>optiic</strong> is the official npm module of <a href="https://optiic.dev">Optiic</a>, a free service to get SOCKS, HTTP, & HTTPS proxies as well as to check your public IP!
+  <strong>optiic</strong> is the official npm module of <a href="https://optiic.dev">Optiic</a>, a free image recognition & optical character recognition (OCR) API.
 </p>
 
 ## Optiic Works in Node AND browser environments
