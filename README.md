@@ -55,7 +55,7 @@ const optiic = new (require('optiic'))({
 ### Install via CDN
 Install with CDN if you plan to use Optiic only in a browser environment.
 ```html
-<script src="https://cdn.jsdelivr.net/npm/optiic"></script>
+<script src="https://cdn.jsdelivr.net/npm/optiic@latest"></script>
 <script type="text/javascript">
   let optiic = new Optiic({
     apiKey: 'api_test_Key' // Not required, but having one removes limits (get your key at https://optiic.dev).
