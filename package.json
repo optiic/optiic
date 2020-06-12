@@ -1,0 +1,29 @@
+{
+  "name": "optiic",
+  "version": "0.0.0",
+  "description": "An advanced free image recognition & analysis API.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/optiic/optiic"
+  },
+  "keywords": [
+    "ocr",
+    "ocr api",
+    "image api",
+    "image recognition",
+    "image recognition api"
+  ],
+  "author": "ITW Creative Works",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/optiic/optiic/issues"
+  },
+  "homepage": "https://optiic.dev"
+}
