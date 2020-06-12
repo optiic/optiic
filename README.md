@@ -68,7 +68,7 @@ You can use **Optiic** in a variety of ways that require no installation, such a
 
 
 ## Using Optiic
-After you have followed the install step, you can start using `optiic` to get proxy lists and check your public IP!
+After you have followed the install step, you can start using `optiic` to analyze images and perform OCR from within your app!
 
 ### .process(options)
 Submit and image to process and return the text in the image.
@@ -108,7 +108,7 @@ curl -d '{"url": "https://example.com/my-image"}' -H 'Content-Type: application/
 ```
 
 ## What Can Optiic do?
-[Optiic is a free proxy api](https://optiic.dev) that helps you get free proxy lists and check your public IP.
+[Optiic is a free OCR api](https://optiic.dev) that helps you analyze images and perform OCR (optical character recognition)!
 
 ## Final Words
 If you are still having difficulty, we would love for you to post
