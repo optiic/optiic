@@ -14,3 +14,5 @@ Gemfile.lock
 gulpfile.js
 .codeclimate.yml
 .git
+
+index-old.js

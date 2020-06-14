@@ -1,6 +1,6 @@
 {
   "name": "optiic",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "An advanced free image recognition & analysis API.",
   "main": "src/index.js",
   "scripts": {
@@ -25,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/optiic/optiic/issues"
   },
-  "homepage": "https://optiic.dev"
+  "homepage": "https://optiic.dev",
+  "dependencies": {
+    "form-data": "^3.0.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {}
 }

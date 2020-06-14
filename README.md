@@ -33,7 +33,7 @@ Yes, this module works in both Node and browser environments, including compatab
 * Provide images as URLs or upload them directly
 * OCR
   * Extract text from the supplied image
-  * Easily filter by country, speed, and anonymity level
+  * Detect the language of the text
 
 ### Getting an API key
 You can use so much of `optiic` for free, but if you want to do some advanced stuff, you'll need an API key. You can get one by signing up for an account at [https://optiic.dev/signup](https://optiic.dev/signup).
@@ -72,25 +72,63 @@ After you have followed the install step, you can start using `optiic` to analyz
 
 ### .process(options)
 Submit and image to process and return the text in the image.
+#### options
+The options for `ocr(options)` are as follows.
+* image `string`, `HTML Input Element`, `File`: The image to be processed. Can be a local path, remote URL, an HTML input, or a File object.
+  * Acceptable Values: `any`
+  * Default: `null`
+* mode `string`: What type of optical recognition will be run, such as OCR.
+  * Acceptable Values: `ocr`
+  * Default: `ocr`
+
+#### Remote URL Example
 ```js
 let options = {
-  url: 'https', // url to the image
+  image: 'https://via.placeholder.com/468x60?text=Sample+text', // url of the image
   mode: 'ocr', // ocr
 };
+
 optiic.process(options)
 .then(result => {
   console.log(result);
 })
 ```
-### options
-The options for `ocr(options)` are as follows.
-* url `string`: URL of the image.
-  * Values: `n/a`
-  * Default: `null`
-* mode `string`: What type of optical recognition will be run, such as OCR.
-  * Values: `ocr`
-  * Default: `ocr`
 
+#### Local path Example
+```js
+let options = {
+  image: '/Users/username/Desktop/my-image.png', // local path to the image
+  mode: 'ocr', // ocr
+};
+
+optiic.process(options)
+.then(result => {
+  console.log(result);
+})
+```
+
+#### HTML Input Example
+```html
+<form class="" action="" method="post">
+  <input type="file" name="image" accept="image/*">
+  <button type="submit">Submit</button>
+</form>
+
+<script type="text/javascript">
+  var myForm = document.querySelector('form');
+
+  myForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    optiic.process({
+      image: myForm.querySelector('input[type="file"]'),
+    })
+    .then(response => {
+      console.log(response);
+    })
+  })
+</script>
+```
 
 ## Extending Capabilities
 For a more in-depth documentation of this library and the Optiic service, please visit the official Optiic website.
@@ -98,13 +136,20 @@ For a more in-depth documentation of this library and the Optiic service, please
 ## Use without installation
 ### Use Optiic with `curl`
 ```shell
-# OCR
+# OCR with URL
 # Standard
 curl -X POST https://api.optiic.dev/process
 # With options
-curl -d "url=https://example.com/my-image" -X POST https://api.optiic.dev/process
+curl -d "apiKey=test_api_key&mode=ocr&url=https://via.placeholder.com/468x60?text=Sample+text" -X POST https://api.optiic.dev/process
 # With options (alternative)
-curl -d '{"url": "https://example.com/my-image"}' -H 'Content-Type: application/json' https://api.optiic.dev/process
+curl -d '{"apiKey": "test_api_key", "mode": "ocr", "url": "https://via.placeholder.com/468x60?text=Sample+text"}' -H 'Content-Type: application/json' https://api.optiic.dev/process
+
+# OCR with image file
+curl \
+  -F "apiKey=test_api_key" \
+  -F "mode=ocr" \
+  -F "image=@/Users/username/Desktop/my-image.png" \
+  https://api.optiic.dev/process
 ```
 
 ## What Can Optiic do?
