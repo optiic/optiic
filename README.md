@@ -64,7 +64,7 @@ Install with CDN if you plan to use Optiic only in a browser environment.
 ```
 
 ### Use without installation
-You can use **Optiic** in a variety of ways that require no installation, such as `curl` in terminal/shell. See the **Use without installation** section below.
+You can use `optiic` in a variety of ways that require no installation, such as `curl` in terminal/shell. See the **Use without installation** section below.
 
 ## Example output
 If you want to see how `optiic` works, you can try a sample image such as `https://via.placeholder.com/468x60?text=Sample+text` which will result in an output like this:
