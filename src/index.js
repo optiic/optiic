@@ -64,8 +64,6 @@
     delete options.path;
     delete options.image;
 
-    console.log('options', options);
-
     return new Promise(function(resolve, reject) {
       var config = {};
       var isLocalPathString = checkLocalPathString(options.url);
@@ -85,8 +83,6 @@
         method: 'POST',
         path: 'process'
       }
-
-      console.log('This.options.environment', This.options.environment);
 
       if (isLocalPathString || isInputElement || isFileObject) {
         var keys = Object.keys(options);
