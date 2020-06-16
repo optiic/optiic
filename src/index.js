@@ -61,6 +61,7 @@
     options = options || {};
     options.url = options.url || options.path || options.image || '';
     options.mode = options.mode || 'ocr';
+    options.apiKey = This.options.apiKey;
     delete options.path;
     delete options.image;
 

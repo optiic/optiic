@@ -1,7 +1,7 @@
 {
   "name": "optiic",
-  "version": "0.0.3",
-  "description": "An advanced free image recognition & analysis API.",
+  "version": "0.0.4",
+  "description": "An advanced free OCR & image recognition API.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +18,11 @@
     "ocr api",
     "image api",
     "image recognition",
-    "image recognition api"
+    "image recognition api",
+    "captcha",
+    "captcha solver",
+    "captcha api",
+    "rest api",
   ],
   "author": "ITW Creative Works",
   "license": "MIT",
