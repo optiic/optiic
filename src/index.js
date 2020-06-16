@@ -61,7 +61,6 @@
     options = options || {};
     options.url = options.url || options.path || options.image || '';
     options.mode = options.mode || 'ocr';
-    options.apiKey = This.options.apiKey;
     delete options.path;
     delete options.image;
 
@@ -99,10 +98,11 @@
           formData.append('image', This.options.environment === 'node' ? fs.createReadStream(options.url.path) : options.url);
         }
         for (var i = 0, l = keys.length; i < l; i++) {
-          if (keys[i] === 'url' || keys[i] === 'image') {
+          var key = keys[i];
+          if (key === 'url' || key === 'image' || typeof options[key] === 'undefined') {
             continue;
           }
-          formData.append(keys[i], options[keys[i]]);
+          formData.append(key, options[key]);
         }
         options = formData;
       }
@@ -129,8 +129,11 @@
       'Accept': contentJSON,
     }
 
-    if (!isForm) {
+    if (isForm) {
+      body.append('apiKey', This.options.apiKey);
+    } else {
       headers['Content-Type'] = contentJSON;
+      body.apiKey = This.options.apiKey;
       body = stringify(body);
     }
 
