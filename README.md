@@ -81,7 +81,7 @@ After you have followed the install step, you can start using `optiic` to analyz
 ### .process(options)
 Submit and image to process and return the text in the image.
 #### options
-The options for `ocr(options)` are as follows.
+The options for `process(options)` are as follows.
 * image `string`, `HTML Input Element`, `File`: The image to be processed. Can be a local path, remote URL, an HTML input, or a File object.
   * Acceptable Values: `any`
   * Default: `null`
