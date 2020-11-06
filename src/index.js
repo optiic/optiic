@@ -20,6 +20,9 @@
 
   var environment = (Object.prototype.toString.call(typeof process !== 'undefined' ? process : 0) === '[object process]') ? 'node' : 'browser';
   var isRemoteURL = /^https?:\/\/|^\/\//i;
+  var CONTENT_JSON = 'application/json';
+  var SOURCE = 'library';
+  var VERSION = '{{version}}';
 
   function Optiic(options) {
     options = options || {};
@@ -56,6 +59,10 @@
     }
     if (!nodeFetch) {
       nodeFetch = This.options.environment === 'browser' ? window.fetch : require('node-fetch');
+    }
+
+    if (!This.options.apiKey || This.options.apiKey.includes('test')) {
+      console.warn('You are not using an Optiic API Key. Please get one at https://optiic.dev/signup');
     }
 
     options = options || {};
@@ -122,18 +129,21 @@
     var This = this;
     var method = (config.method || 'post').toLowerCase();
     var isForm = body && typeof body.append === 'function';
-    var contentJSON = 'application/json';
     var serverAddy;
     var headers = {
       'cache-control': 'no-cache',
-      'Accept': contentJSON,
+      'Accept': CONTENT_JSON,
     }
 
     if (isForm) {
       body.append('apiKey', This.options.apiKey);
+      body.append('source', SOURCE);
+      body.append('version', VERSION);
     } else {
-      headers['Content-Type'] = contentJSON;
+      headers['Content-Type'] = CONTENT_JSON;
       body.apiKey = This.options.apiKey;
+      body.source = SOURCE;
+      body.version = VERSION;
       body = stringify(body);
     }
 

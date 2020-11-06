@@ -67,10 +67,10 @@ Install with CDN if you plan to use Optiic only in a browser environment.
 You can use `optiic` in a variety of ways that require no installation, such as `curl` in terminal/shell. See the **Use without installation** section below.
 
 ## Example output
-If you want to see how `optiic` works, you can try a sample image such as `https://via.placeholder.com/468x60?text=Sample+text` which will result in an output like this:
+If you want to see how `optiic` works, you can try a sample image such as `https://via.placeholder.com/468x60?text=We+love+Optiic!` which will result in an output like this:
 ```js
 {
-  text: "Sample text",
+  text: "We love Optiic!",
   language: "en",
 }
 ```
@@ -78,7 +78,7 @@ If you want to see how `optiic` works, you can try a sample image such as `https
 ## Using Optiic
 After you have followed the install step, you can start using `optiic` to analyze images and perform OCR from within your app!
 
-### .process(options)
+### optiic.process(options)
 Submit and image to process and return the text in the image.
 #### options
 The options for `process(options)` are as follows.
@@ -92,7 +92,7 @@ The options for `process(options)` are as follows.
 #### Remote URL Example
 ```js
 let options = {
-  image: 'https://via.placeholder.com/468x60?text=Sample+text', // url of the image
+  image: 'https://via.placeholder.com/468x60?text=We+love+Optiic!', // url of the image
   mode: 'ocr', // ocr
 };
 
@@ -145,7 +145,7 @@ For a more in-depth documentation of this library and the Optiic service, please
 ### Use Optiic with `curl`
 ```shell
 # OCR with URL
-curl -d '{"apiKey": "test_api_key", "mode": "ocr", "url": "https://via.placeholder.com/468x60?text=Sample+text"}' -H 'Content-Type: application/json' https://api.optiic.dev/process
+curl -d '{"apiKey": "test_api_key", "mode": "ocr", "url": "https://via.placeholder.com/468x60?text=We+love+Optiic!"}' -H 'Content-Type: application/json' https://api.optiic.dev/process
 
 # OCR with image file
 curl \
