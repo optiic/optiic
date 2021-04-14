@@ -39,7 +39,7 @@
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "fs-jetpack": "^4.0.1"
+    "fs-jetpack": "^4.1.0"
   },
   "runkitExampleFilename": "examples/process.js"
 }
