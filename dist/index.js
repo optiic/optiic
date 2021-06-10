@@ -22,7 +22,7 @@
   var isRemoteURL = /^https?:\/\/|^\/\//i;
   var CONTENT_JSON = 'application/json';
   var SOURCE = 'library';
-  var VERSION = '0.0.11';
+  var VERSION = '0.0.12';
 
   function Optiic(options) {
     options = options || {};
@@ -39,21 +39,31 @@
 
   };
 
-  function checkLocalPathString(input) {
+  function _checkLocalPathString(input) {
     return typeof input === 'string' && !isRemoteURL.test(input);
   }
 
-  function checkInputElement(input) {
+  function _checkInputElement(input) {
     return typeof input === 'object' && input.tagName === 'INPUT' && input.files && input.files[0];
   }
 
-  function checkFileObject(input) {
-    return !checkInputElement(input) && typeof input === 'object' && typeof input.name === 'string';
+  function _isFileObject(input) {
+    return !_checkInputElement(input) && typeof input === 'object' && typeof input.name === 'string';
+  }
+
+  function _isFormData(input) {
+    return input && typeof input.append === 'function';
   }
 
   Optiic.prototype.process = function (options) {
     var This = this;
     var formData;
+    var isFormData = _isFormData(options);
+    var config = {
+      method: 'POST',
+      path: 'process'
+    }
+
     if (!NodeFormData) {
       NodeFormData = This.options.environment === 'browser' ? window.FormData : require('form-data');
     }
@@ -61,21 +71,31 @@
       nodeFetch = This.options.environment === 'browser' ? window.fetch : require('node-fetch');
     }
 
-    if (!This.options.apiKey || This.options.apiKey.includes('test')) {
+    if (!This.options.apiKey || This.options.apiKey.includes('test') || This.options.apiKey.includes('your_api')) {
       console.warn('You are not using an Optiic API Key. Please get one at https://optiic.dev/signup');
     }
 
-    options = options || {};
-    options.url = options.url || options.path || options.image || '';
-    options.mode = options.mode || 'ocr';
-    delete options.path;
-    delete options.image;
-
     return new Promise(function(resolve, reject) {
-      var config = {};
-      var isLocalPathString = checkLocalPathString(options.url);
-      var isInputElement = checkInputElement(options.url);
-      var isFileObject = checkFileObject(options.url);
+      var isLocalPathString = _checkLocalPathString(options.url);
+      var isInputElement = _checkInputElement(options.url);
+      var isFileObject = _isFileObject(options.url);
+
+
+      if (isFormData) {
+        return This._request(config, options)
+        .then(function (r) {
+          return resolve(r);
+        })
+        .catch(function (e) {
+          return reject(e);
+        });
+      }
+
+      options = options || {};
+      options.url = options.url || options.path || options.image || '';
+      options.mode = options.mode || 'ocr';
+      delete options.path;
+      delete options.image;
 
       // Checks
       if (!options.url) {
@@ -84,11 +104,6 @@
         return reject(new Error('Improperly formatted url or image input'))
       } else if (isLocalPathString && This.options.environment !== 'node') {
         return reject(new Error('This environment does not have permission to use a local path as the url so use a file input instead'))
-      }
-
-      config = {
-        method: 'POST',
-        path: 'process'
       }
 
       if (isLocalPathString || isInputElement || isFileObject) {
