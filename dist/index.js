@@ -22,7 +22,7 @@
   var isRemoteURL = /^https?:\/\/|^\/\//i;
   var CONTENT_JSON = 'application/json';
   var SOURCE = 'library';
-  var VERSION = '0.0.12';
+  var VERSION = '0.0.13';
 
   function Optiic(options) {
     options = options || {};
@@ -165,7 +165,7 @@
     return new Promise(function(resolve, reject) {
 
       if (This.options.local) {
-        serverAddy = 'http://localhost:5000/' + config.path;
+        serverAddy = 'http://localhost:3000/' + config.path;
       } else {
         serverAddy = 'https://api.optiic.dev/' + config.path;
       }
