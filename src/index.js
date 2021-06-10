@@ -165,7 +165,7 @@
     return new Promise(function(resolve, reject) {
 
       if (This.options.local) {
-        serverAddy = 'http://localhost:5000/' + config.path;
+        serverAddy = 'http://localhost:3000/' + config.path;
       } else {
         serverAddy = 'https://api.optiic.dev/' + config.path;
       }
