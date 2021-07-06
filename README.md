@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://cdn.itwcreativeworks.com/assets/optiic/images/logo/optiic-brandmark-black-x.svg">
-    <img src="https://cdn.itwcreativeworks.com/assets/optiic/images/logo/optiic-brandmark-black-x.svg">
+    <img src="https://cdn.itwcreativeworks.com/assets/optiic/images/logo/optiic-brandmark-black-x.svg" width="100px">
   </a>
 </p>
 
