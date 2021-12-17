@@ -154,11 +154,13 @@
       body.append('apiKey', This.options.apiKey);
       body.append('_source', SOURCE);
       body.append('_version', VERSION);
+      body.append('_referrer', getLocation());
     } else {
       headers['Content-Type'] = CONTENT_JSON;
       body.apiKey = This.options.apiKey;
       body._source = SOURCE;
       body._version = VERSION;
+      body._referrer = getLocation();
       body = stringify(body);
     }
 
@@ -202,6 +204,14 @@
         return reject(e);
       })
     });
+  }
+
+  function getLocation() {
+    try {
+      return window.location.href;
+    } catch (e) {
+      return null;
+    }
   }
 
   function stringify(data) {
