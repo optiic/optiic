@@ -22,7 +22,7 @@
   var isRemoteURL = /^https?:\/\/|^\/\//i;
   var CONTENT_JSON = 'application/json';
   var SOURCE = 'library';
-  var VERSION = '0.0.14';
+  var VERSION = '0.0.15';
 
   function Optiic(options) {
     options = options || {};
@@ -154,11 +154,13 @@
       body.append('apiKey', This.options.apiKey);
       body.append('_source', SOURCE);
       body.append('_version', VERSION);
+      body.append('_referrer', getLocation());
     } else {
       headers['Content-Type'] = CONTENT_JSON;
       body.apiKey = This.options.apiKey;
       body._source = SOURCE;
       body._version = VERSION;
+      body._referrer = getLocation();
       body = stringify(body);
     }
 
@@ -202,6 +204,14 @@
         return reject(e);
       })
     });
+  }
+
+  function getLocation() {
+    try {
+      return window.location.href;
+    } catch (e) {
+      return null;
+    }
   }
 
   function stringify(data) {
