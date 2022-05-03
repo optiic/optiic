@@ -26,7 +26,7 @@
 </p>
 
 ## Optiic Works in Node AND browser environments
-Yes, this module works in both Node and browser environments, including compatability with [Webpack](https://www.npmjs.com/package/webpack) and [Browserify](https://www.npmjs.com/package/browserify)!
+Yes, this module works in both Node and browser environments, including compatibility with [Webpack](https://www.npmjs.com/package/webpack) and [Browserify](https://www.npmjs.com/package/browserify)!
 
 ## Features
 * Image recognition and analysis API

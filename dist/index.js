@@ -22,7 +22,7 @@
   var isRemoteURL = /^https?:\/\/|^\/\//i;
   var CONTENT_JSON = 'application/json';
   var SOURCE = 'library';
-  var VERSION = '0.0.15';
+  var VERSION = '0.0.16';
 
   function Optiic(options) {
     options = options || {};
