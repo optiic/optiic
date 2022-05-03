@@ -22,7 +22,7 @@
   <a href="https://optiic.dev">Site</a> | <a href="https://www.npmjs.com/package/optiic">NPM Module</a> | <a href="https://github.com/optiic/optiic">GitHub Repo</a>
   <br>
   <br>
-  <strong>optiic</strong> is the official npm module of <a href="https://optiic.dev">Optiic</a>, a free image recognition & optical character recognition (OCR) API.
+  <strong>optiic</strong> is the official npm module of <a href="https://optiic.dev">Optiic</a>, a free image recognition & optical character recognition (OCR) API. It works on any image as well as PDFs!
 </p>
 
 ## Optiic Works in Node AND browser environments
@@ -34,6 +34,7 @@ Yes, this module works in both Node and browser environments, including compatib
 * OCR
   * Extract text from the supplied image
   * Detect the language of the text
+* Support for `.pdf`, `.png`, `.jpeg`, and many more!
 
 ### Getting an API key
 You can use so much of `optiic` for free, but if you want to do some advanced stuff, you'll need an API key. You can get one by signing up for an account at [https://optiic.dev/signup](https://optiic.dev/signup).
