@@ -1,3 +1,4 @@
+
 <p align="center">
   <a href="https://cdn.itwcreativeworks.com/assets/optiic/images/logo/optiic-brandmark-black-x.svg">
     <img src="https://cdn.itwcreativeworks.com/assets/optiic/images/logo/optiic-brandmark-black-x.svg" width="100px">
@@ -7,8 +8,8 @@
 <p align="center">
   <img src="https://img.shields.io/github/package-json/v/optiic/optiic.svg">
   <br>
-  <img src="https://img.shields.io/david/optiic/optiic.svg">
-  <img src="https://img.shields.io/david/dev/optiic/optiic.svg">
+  <img src="https://img.shields.io/librariesio/release/npm/optiic.svg">
+  <!-- <img src="https://img.shields.io/david/dev/optiic/optiic.svg"> -->
   <img src="https://img.shields.io/bundlephobia/min/optiic.svg">
   <img src="https://img.shields.io/codeclimate/maintainability-percentage/optiic/optiic.svg">
   <img src="https://img.shields.io/npm/dm/optiic.svg">
@@ -37,7 +38,7 @@ Yes, this module works in both Node and browser environments, including compatib
 * Support for `.pdf`, `.png`, `.jpeg`, and many more!
 
 ### Getting an API key
-You can use so much of `optiic` for free, but if you want to do some advanced stuff, you'll need an API key. You can get one by signing up for an account at [https://optiic.dev/signup](https://optiic.dev/signup).
+You can use so much of `optiic` for free, but if you want to do some advanced stuff, you'll need an API key. You can get one by [signing up for an account](https://optiic.dev/authentication/signup).
 
 ## Install Optiic
 ### Install via npm
@@ -68,7 +69,17 @@ Install with CDN if you plan to use Optiic only in a browser environment.
 You can use `optiic` in a variety of ways that require no installation, such as `curl` in terminal/shell. See the **Use without installation** section below.
 
 ## Example output
-If you want to see how `optiic` works, you can try a sample image such as `https://via.placeholder.com/468x60?text=We+love+Optiic!` which will result in an output like this:
+If you want to see how `optiic` works, you can try a sample such as [this image](https://optiic.dev/assets/images/samples/we-love-optiic.png):
+
+<p align="center">
+  <a href="https://optiic.dev/assets/images/samples/we-love-optiic.png">
+    <img src="https://optiic.dev/assets/images/samples/we-love-optiic.png" width="100%">
+  </a>
+</p>
+
+
+
+This will result in an output like this:
 ```js
 {
   text: "We love Optiic!",
@@ -93,7 +104,7 @@ The options for `process(options)` are as follows.
 #### Remote URL Example
 ```js
 let options = {
-  image: 'https://via.placeholder.com/468x60?text=We+love+Optiic!', // url of the image
+  image: 'https://optiic.dev/assets/images/samples/we-love-optiic.png', // url of the image
   mode: 'ocr', // ocr
 };
 
@@ -144,14 +155,19 @@ For a more in-depth documentation of this library and the Optiic service, please
 
 ## Use without installation
 ### Use Optiic with `curl`
+#### OCR with URL
 ```shell
-# OCR with URL
-curl -d '{"apiKey": "test_api_key", "mode": "ocr", "url": "https://via.placeholder.com/468x60?text=We+love+Optiic!"}' -H 'Content-Type: application/json' https://api.optiic.dev/process
+curl \
+  -d '{"apiKey": "test_api_key", "url": "https://optiic.dev/assets/images/samples/we-love-optiic.png"}' \
+  -H 'Content-Type: application/json' \
+  https://api.optiic.dev/process
 
-# OCR with image file
+```
+
+#### OCR with image file
+```shell
 curl \
   -F "apiKey=test_api_key" \
-  -F "mode=ocr" \
   -F "image=@/Users/username/Desktop/my-image.png" \
   https://api.optiic.dev/process
 ```

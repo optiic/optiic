@@ -22,7 +22,7 @@
   var isRemoteURL = /^https?:\/\/|^\/\//i;
   var CONTENT_JSON = 'application/json';
   var SOURCE = 'library';
-  var VERSION = '0.0.18';
+  var VERSION = '0.0.19';
 
   function Optiic(options) {
     options = options || {};
@@ -115,7 +115,7 @@
         if (isLocalPathString) {
           formData.append('image', fs.createReadStream(options.url));
         } else if (isInputElement) {
-          formData.append('image',  This.options.environment === 'node' ? fs.createReadStream(options.url.files[0].path) : options.url.files[0]);
+          formData.append('image', This.options.environment === 'node' ? fs.createReadStream(options.url.files[0].path) : options.url.files[0]);
         } else if (isFileObject) {
           formData.append('image', This.options.environment === 'node' ? fs.createReadStream(options.url.path) : options.url);
         }
