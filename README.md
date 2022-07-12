@@ -9,7 +9,6 @@
   <img src="https://img.shields.io/github/package-json/v/optiic/optiic.svg">
   <br>
   <img src="https://img.shields.io/librariesio/release/npm/optiic.svg">
-  <!-- <img src="https://img.shields.io/david/dev/optiic/optiic.svg"> -->
   <img src="https://img.shields.io/bundlephobia/min/optiic.svg">
   <img src="https://img.shields.io/codeclimate/maintainability-percentage/optiic/optiic.svg">
   <img src="https://img.shields.io/npm/dm/optiic.svg">
