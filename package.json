@@ -1,10 +1,10 @@
 {
   "name": "optiic",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "An advanced free OCR & image recognition API.",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run prepare && ./node_modules/mocha/bin/mocha test/ --recursive --timeout=10000",
     "prepare": "node -e 'require(`prepare-package`)'"
   },
   "engines": {
@@ -39,8 +39,8 @@
     "node-fetch": "^2.6.7"
   },
   "devDependencies": {
-    "fs-jetpack": "^4.1.0",
-    "prepare-package": "^0.0.11"
+    "mocha": "^8.4.0",
+    "prepare-package": "^0.0.12"
   },
   "runkitExampleFilename": "examples/process.js"
 }
