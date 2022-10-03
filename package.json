@@ -1,6 +1,6 @@
 {
   "name": "optiic",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "An advanced free OCR & image recognition API.",
   "main": "./dist/index.js",
   "scripts": {
@@ -10,9 +10,6 @@
   "engines": {
     "node": ">=6.0.0"
   },
-  "files": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/optiic/optiic"
@@ -34,6 +31,7 @@
     "url": "https://github.com/optiic/optiic/issues"
   },
   "homepage": "https://optiic.dev",
+  "runkitExampleFilename": "examples/process.js",
   "dependencies": {
     "form-data": "^3.0.1",
     "node-fetch": "^2.6.7"
@@ -41,6 +39,5 @@
   "devDependencies": {
     "mocha": "^8.4.0",
     "prepare-package": "^0.0.16"
-  },
-  "runkitExampleFilename": "examples/process.js"
+  }
 }
