@@ -37,7 +37,7 @@
     "node-fetch": "^2.6.7"
   },
   "devDependencies": {
-    "mocha": "^8.4.0",
+    "mocha": "^10.1.0",
     "prepare-package": "^0.0.16"
   }
 }
