@@ -76,6 +76,12 @@
     }
 
     return new Promise(function(resolve, reject) {
+      options = options || {};
+      options.url = options.url || options.path || options.image || '';
+      options.mode = options.mode || 'ocr';
+      delete options.path;
+      delete options.image;
+      
       var isLocalPathString = _checkLocalPathString(options.url);
       var isInputElement = _checkInputElement(options.url);
       var isFileObject = _isFileObject(options.url);
@@ -90,12 +96,6 @@
           return reject(e);
         });
       }
-
-      options = options || {};
-      options.url = options.url || options.path || options.image || '';
-      options.mode = options.mode || 'ocr';
-      delete options.path;
-      delete options.image;
 
       // Checks
       if (!options.url) {
