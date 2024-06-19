@@ -22,7 +22,7 @@
   var isRemoteURL = /^https?:\/\/|^\/\//i;
   var CONTENT_JSON = 'application/json';
   var SOURCE = 'library';
-  var VERSION = '0.0.21';
+  var VERSION = '1.0.1';
 
   function Optiic(options) {
     options = options || {};
@@ -68,7 +68,7 @@
       NodeFormData = This.options.environment === 'browser' ? window.FormData : require('form-data');
     }
     if (!nodeFetch) {
-      nodeFetch = This.options.environment === 'browser' ? window.fetch : require('node-fetch');
+      nodeFetch = This.options.environment === 'browser' ? window.fetch : require('wonderful-fetch');
     }
 
     if (!This.options.apiKey || This.options.apiKey.includes('test') || This.options.apiKey.includes('your_api')) {

@@ -68,7 +68,7 @@
       NodeFormData = This.options.environment === 'browser' ? window.FormData : require('form-data');
     }
     if (!nodeFetch) {
-      nodeFetch = This.options.environment === 'browser' ? window.fetch : require('node-fetch');
+      nodeFetch = This.options.environment === 'browser' ? window.fetch : require('wonderful-fetch');
     }
 
     if (!This.options.apiKey || This.options.apiKey.includes('test') || This.options.apiKey.includes('your_api')) {

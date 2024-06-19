@@ -1,6 +1,6 @@
 
 <p align="center">
-  <a href="https://cdn.itwcreativeworks.com/assets/optiic/images/logo/optiic-brandmark-black-x.svg">
+  <a href="https://optiic.dev">
     <img src="https://cdn.itwcreativeworks.com/assets/optiic/images/logo/optiic-brandmark-black-x.svg" width="100px">
   </a>
 </p>
@@ -25,10 +25,10 @@
   <strong>optiic</strong> is the official npm module of <a href="https://optiic.dev">Optiic</a>, a free image recognition & optical character recognition (OCR) API. It works on any image as well as PDFs!
 </p>
 
-## Optiic Works in Node AND browser environments
+## 🌐 Optiic Works in Node AND browser environments
 Yes, this module works in both Node and browser environments, including compatibility with [Webpack](https://www.npmjs.com/package/webpack) and [Browserify](https://www.npmjs.com/package/browserify)!
 
-## Features
+## 🦄 Features
 * Image recognition and analysis API
 * Provide images as URLs or upload them directly
 * OCR
@@ -36,11 +36,11 @@ Yes, this module works in both Node and browser environments, including compatib
   * Detect the language of the text
 * Support for `.pdf`, `.png`, `.jpeg`, and many more!
 
-### Getting an API key
-You can use so much of `optiic` for free, but if you want to do some advanced stuff, you'll need an API key. You can get one by [signing up for an account](https://optiic.dev/authentication/signup).
+### 🔑 Getting an API key
+You can use so much of `optiic` for free, but if you want to do some advanced stuff, you'll need an API key. You can get one by [signing up for an account](https://optiic.dev/signup).
 
-## Install Optiic
-### Install via npm
+## 📦 Install Optiic
+### Option 1: Install via npm
 Install with npm if you plan to use `optiic` in a Node project or in the browser.
 ```shell
 npm install optiic
@@ -53,7 +53,7 @@ const optiic = new (require('optiic'))({
 });
 ```
 
-### Install via CDN
+### Option 2: Install via CDN
 Install with CDN if you plan to use Optiic only in a browser environment.
 ```html
 <script src="https://cdn.jsdelivr.net/npm/optiic@latest/dist/index.min.js"></script>
@@ -64,14 +64,14 @@ Install with CDN if you plan to use Optiic only in a browser environment.
 </script>
 ```
 
-### Use without installation
+### Option 3: Use without installation
 You can use `optiic` in a variety of ways that require no installation, such as `curl` in terminal/shell. See the **Use without installation** section below.
 
-## Example output
+## 📝 Example output
 If you want to see how `optiic` works, you can try a sample such as [this image](https://optiic.dev/assets/images/samples/we-love-optiic.png):
 
 <p align="center">
-  <a href="https://optiic.dev/assets/images/samples/we-love-optiic.png">
+  <a href="https://optiic.dev">
     <img src="https://optiic.dev/assets/images/samples/we-love-optiic.png" width="100%">
   </a>
 </p>
@@ -86,7 +86,7 @@ This will result in an output like this:
 }
 ```
 
-## Using Optiic
+## ⚡️ Using Optiic
 After you have followed the install step, you can start using `optiic` to analyze images and perform OCR from within your app!
 
 ### optiic.process(options)
@@ -149,10 +149,7 @@ optiic.process(options)
 </script>
 ```
 
-## Extending Capabilities
-For a more in-depth documentation of this library and the Optiic service, please visit the official Optiic website.
-
-## Use without installation
+## 🔧 Use without installation
 ### Use Optiic with `curl`
 #### OCR with URL
 ```shell
@@ -171,14 +168,16 @@ curl \
   https://api.optiic.dev/process
 ```
 
-## What Can Optiic do?
+## 📝 What Can Optiic do?
 [Optiic is a free OCR api](https://optiic.dev) that helps you analyze images and perform OCR (optical character recognition)!
 
-## Final Words
+For a more in-depth documentation of this library and the Optiic service, please visit the official Optiic website.
+
+## 🗨️ Final Words
 If you are still having difficulty, we would love for you to post
 a question to [the Optiic issues page](https://github.com/optiic/optiic/issues). It is much easier to answer questions that include your code and relevant files! So if you can provide them, we'd be extremely grateful (and more likely to help you find the answer!)
 
-## Projects Using this Library
+## 📚 Projects Using this Library
 [Somiibo](https://somiibo.com/): A Social Media Bot with an open-source module library. <br>
 [JekyllUp](https://jekyllup.com/): A website devoted to sharing the best Jekyll themes. <br>
 [Slapform](https://slapform.com/): A backend processor for your HTML forms on static sites. <br>
