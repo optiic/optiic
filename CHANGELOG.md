@@ -15,6 +15,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `Security` in case of vulnerabilities.
 
 ---
+## [2.0.2] - 2026-03-15
+### Changed
+- Update README with both ESM and CJS import examples
+
+---
 ## [2.0.1] - 2026-03-15
 ### Fixed
 - CJS `require('optiic')` now works directly without `.default` (via prepare-package footer)

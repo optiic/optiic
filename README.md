@@ -36,8 +36,14 @@ npm install optiic
 ```
 
 ```js
+// ESM
 import Optiic from 'optiic';
 
+// CommonJS
+const Optiic = require('optiic');
+```
+
+```js
 const optiic = new Optiic({ apiKey: 'YOUR_API_KEY' });
 
 const result = await optiic.process({
