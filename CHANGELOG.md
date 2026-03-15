@@ -15,10 +15,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `Security` in case of vulnerabilities.
 
 ---
-## [2.0.0] - 2026-03-15
-### BREAKING
-- ESM-first exports — CJS users must use `require('optiic').default`
+## [2.0.1] - 2026-03-15
+### Fixed
+- CJS `require('optiic')` now works directly without `.default` (via prepare-package footer)
 
+### Changed
+- Bump wonderful-fetch to 2.0.4 and prepare-package to 2.0.7
+
+---
+## [2.0.0] - 2026-03-15
 ### Changed
 - Migrate build system to prepare-package (ESM, CJS, IIFE outputs)
 - Upgrade to wonderful-fetch v2 (unified Node + browser fetch)

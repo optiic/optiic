@@ -23,7 +23,7 @@ before(() => {
 });
 
 describe('Optiic', () => {
-  const Optiic = require('../dist/index.js').default;
+  const Optiic = require('../dist/index.js');
 
   describe('initialization', () => {
     it('should create an instance with default options', () => {
