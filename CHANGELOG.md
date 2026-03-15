@@ -15,6 +15,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `Security` in case of vulnerabilities.
 
 ---
+## [2.0.0] - 2026-03-15
+### BREAKING
+- ESM-first exports — CJS users must use `require('optiic').default`
+
+### Changed
+- Migrate build system to prepare-package (ESM, CJS, IIFE outputs)
+- Upgrade to wonderful-fetch v2 (unified Node + browser fetch)
+- Use wonderful-fetch's built-in authorization, JSON response parsing, and logging
+- Replace package.json version import with `{version}` token (replaced at build time)
+- Add `url` and `debug` constructor options
+- Modernize README with updated API docs, usage examples, and curl snippets
+- Upgrade all dependencies to latest
+
+### Removed
+- `.npmignore` (replaced by `files` field in package.json)
+
+### Added
+- Comprehensive live tests (validation, remote URL, local file, FormData)
+- IIFE build for `<script>` tag usage via CDN
+
+---
 ## [1.0.0] - 2024-06-19
 ### Added
 - Initial release of the project 🚀
