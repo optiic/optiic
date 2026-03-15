@@ -7,78 +7,90 @@
 
 <p align="center">
   <img src="https://img.shields.io/github/package-json/v/optiic/optiic.svg">
-  <br>
-  <img src="https://img.shields.io/librariesio/release/npm/optiic.svg">
   <img src="https://img.shields.io/bundlephobia/min/optiic.svg">
-  <img src="https://img.shields.io/codeclimate/maintainability-percentage/optiic/optiic.svg">
   <img src="https://img.shields.io/npm/dm/optiic.svg">
   <img src="https://img.shields.io/node/v/optiic.svg">
-  <img src="https://img.shields.io/website/https/optiic.dev.svg">
   <img src="https://img.shields.io/github/license/optiic/optiic.svg">
-  <img src="https://img.shields.io/github/contributors/optiic/optiic.svg">
-  <img src="https://img.shields.io/github/last-commit/optiic/optiic.svg">
   <br>
   <br>
   <a href="https://optiic.dev">Site</a> | <a href="https://www.npmjs.com/package/optiic">NPM Module</a> | <a href="https://github.com/optiic/optiic">GitHub Repo</a>
   <br>
   <br>
-  <strong>optiic</strong> is the official npm module of <a href="https://optiic.dev">Optiic</a>, a free image recognition & optical character recognition (OCR) API. It works on any image as well as PDFs!
+  <strong>Optiic</strong> is a free image recognition & optical character recognition (OCR) API. Extract text from any image or PDF.
 </p>
 
-## 🌐 Optiic Works in Node AND browser environments
-Yes, this module works in both Node and browser environments, including compatibility with [Webpack](https://www.npmjs.com/package/webpack) and [Browserify](https://www.npmjs.com/package/browserify)!
+# Free OCR & image recognition API
 
-## 🦄 Features
-* Image recognition and analysis API
-* Provide images as URLs or upload them directly
-* OCR
-  * Extract text from the supplied image
-  * Detect the language of the text
-* Support for `.pdf`, `.png`, `.jpeg`, and many more!
+## Quick Start
 
-### 🔑 Getting an API key
-You can use so much of `optiic` for free, but if you want to do some advanced stuff, you'll need an API key. You can get one by [signing up for an account](https://optiic.dev/signup).
+### 1. Get an API Key
 
-## 📦 Install Optiic
-### Option 1: Install via npm
-Install with npm if you plan to use `optiic` in a Node project or in the browser.
-```shell
+Sign up at [optiic.dev/signup](https://optiic.dev/signup) to get your API key. A free tier is available.
+
+### 2. Add to Your Project
+
+**NPM** (Node.js, React, Vue, Next.js, etc.):
+
+```
 npm install optiic
 ```
-If you plan to use `optiic` in a browser environment, you will probably need to use [Webpack](https://www.npmjs.com/package/webpack), [Browserify](https://www.npmjs.com/package/browserify), or a similar service to compile it.
 
 ```js
-const optiic = new (require('optiic'))({
-  apiKey: 'api_test_key' // Not required, but having one removes limits (get your key at https://optiic.dev).
+import Optiic from 'optiic';
+
+const optiic = new Optiic({ apiKey: 'YOUR_API_KEY' });
+
+const result = await optiic.process({
+  url: 'https://optiic.dev/assets/images/samples/we-love-optiic.png',
 });
+
+console.log(result.text); // "We love Optiic!"
 ```
 
-### Option 2: Install via CDN
-Install with CDN if you plan to use Optiic only in a browser environment.
+**Script tag** (no build tools needed):
+
 ```html
-<script src="https://cdn.jsdelivr.net/npm/optiic@latest/dist/index.min.js"></script>
-<script type="text/javascript">
-  let optiic = new Optiic({
-    apiKey: 'api_test_Key' // Not required, but having one removes limits (get your key at https://optiic.dev).
+<script src="https://cdn.jsdelivr.net/npm/optiic@latest/dist/optiic.min.js"></script>
+<script>
+  const optiic = new Optiic({ apiKey: 'YOUR_API_KEY' });
+
+  optiic.process({
+    url: 'https://optiic.dev/assets/images/samples/we-love-optiic.png',
+  }).then(result => {
+    console.log(result.text);
   });
 </script>
 ```
 
-### Option 3: Use without installation
-You can use `optiic` in a variety of ways that require no installation, such as `curl` in terminal/shell. See the **Use without installation** section below.
+## Features
 
-## 📝 Example output
-If you want to see how `optiic` works, you can try a sample such as [this image](https://optiic.dev/assets/images/samples/we-love-optiic.png):
+* Extract text from images and PDFs via OCR
+* Submit images as remote URLs, local file paths (Node.js), file inputs, or File objects (browser)
+* Works in both Node.js and browser environments
+* Supports `.png`, `.jpeg`, `.pdf`, and more
 
-<p align="center">
-  <a href="https://optiic.dev">
-    <img src="https://optiic.dev/assets/images/samples/we-love-optiic.png" width="100%">
-  </a>
-</p>
+## API
 
+### `new Optiic(options)`
 
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `apiKey` | `string` | `''` | Your API key from [optiic.dev](https://optiic.dev) |
+| `url` | `string` | `'https://api.optiic.dev'` | API base URL (override for self-hosting or local dev) |
+| `debug` | `boolean` | `false` | Enable debug logging |
 
-This will result in an output like this:
+### `optiic.process(options)`
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `url` | `string`, `HTMLInputElement`, `File` | *required* | Image source: remote URL, local path, file input, or File object |
+| `mode` | `string` | `'ocr'` | Recognition mode |
+| `language` | `string` | `'en'` | Language hint for OCR |
+
+You can also pass a pre-built `FormData` instance directly to `process()`.
+
+Returns a `Promise` that resolves with:
+
 ```js
 {
   text: "We love Optiic!",
@@ -86,102 +98,70 @@ This will result in an output like this:
 }
 ```
 
-## ⚡️ Using Optiic
-After you have followed the install step, you can start using `optiic` to analyze images and perform OCR from within your app!
+## Usage Examples
 
-### optiic.process(options)
-Submit and image to process and return the text in the image.
-#### options
-The options for `process(options)` are as follows.
-* image `string`, `HTML Input Element`, `File`: The image to be processed. Can be a local path, remote URL, an HTML input, or a File object.
-  * Acceptable Values: `any`
-  * Default: `null`
-* mode `string`: What type of optical recognition will be run, such as OCR.
-  * Acceptable Values: `ocr`
-  * Default: `ocr`
+### Remote URL
 
-#### Remote URL Example
 ```js
-let options = {
-  image: 'https://optiic.dev/assets/images/samples/we-love-optiic.png', // url of the image
-  mode: 'ocr', // ocr
-};
-
-optiic.process(options)
-.then(result => {
-  console.log(result);
-})
+const result = await optiic.process({
+  url: 'https://optiic.dev/assets/images/samples/we-love-optiic.png',
+});
 ```
 
-#### Local path Example
-```js
-let options = {
-  image: '/Users/username/Desktop/my-image.png', // local path to the image
-  mode: 'ocr', // ocr
-};
+### Local file path (Node.js only)
 
-optiic.process(options)
-.then(result => {
-  console.log(result);
-})
+```js
+const result = await optiic.process({
+  url: '/Users/username/Desktop/my-image.png',
+});
 ```
 
-#### HTML Input Example
+### HTML file input (browser)
+
 ```html
-<form class="" action="" method="post">
-  <input type="file" name="image" accept="image/*">
-  <button type="submit">Submit</button>
-</form>
+<input type="file" id="image-input" accept="image/*">
 
-<script type="text/javascript">
-  var myForm = document.querySelector('form');
-
-  myForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    optiic.process({
-      image: myForm.querySelector('input[type="file"]'),
-    })
-    .then(response => {
-      console.log(response);
-    })
-  })
+<script>
+  document.querySelector('#image-input').addEventListener('change', async (e) => {
+    const result = await optiic.process({
+      url: e.target,
+    });
+    console.log(result.text);
+  });
 </script>
 ```
 
-## 🔧 Use without installation
-### Use Optiic with `curl`
-#### OCR with URL
-```shell
-curl \
-  -d '{"apiKey": "test_api_key", "url": "https://optiic.dev/assets/images/samples/we-love-optiic.png"}' \
-  -H 'Content-Type: application/json' \
-  https://api.optiic.dev/process
+### curl
 
+```bash
+# OCR with remote URL
+curl -X POST https://api.optiic.dev/process \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://optiic.dev/assets/images/samples/we-love-optiic.png"}'
+
+# OCR with local file
+curl -X POST https://api.optiic.dev/process \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -F "image=@/path/to/image.png"
 ```
 
-#### OCR with image file
-```shell
-curl \
-  -F "apiKey=test_api_key" \
-  -F "image=@/Users/username/Desktop/my-image.png" \
-  https://api.optiic.dev/process
+## Development
+
+```bash
+npm start        # Watch mode - rebuilds on file changes
+npm run build    # One-time build (ESM, CJS, IIFE)
+npm test         # Run tests
 ```
 
-## 📝 What Can Optiic do?
-[Optiic is a free OCR api](https://optiic.dev) that helps you analyze images and perform OCR (optical character recognition)!
+### Build Outputs
 
-For a more in-depth documentation of this library and the Optiic service, please visit the official Optiic website.
+| File | Format | Use Case |
+|------|--------|----------|
+| `dist/index.mjs` | ESM | `import` in modern bundlers (webpack, Vite, etc.) |
+| `dist/index.js` | CJS | `require()` in Node.js |
+| `dist/optiic.min.js` | IIFE (minified) | `<script>` tag / CDN |
 
-## 🗨️ Final Words
-If you are still having difficulty, we would love for you to post
-a question to [the Optiic issues page](https://github.com/optiic/optiic/issues). It is much easier to answer questions that include your code and relevant files! So if you can provide them, we'd be extremely grateful (and more likely to help you find the answer!)
+## License
 
-## 📚 Projects Using this Library
-[Somiibo](https://somiibo.com/): A Social Media Bot with an open-source module library. <br>
-[JekyllUp](https://jekyllup.com/): A website devoted to sharing the best Jekyll themes. <br>
-[Slapform](https://slapform.com/): A backend processor for your HTML forms on static sites. <br>
-[SoundGrail Music App](https://app.soundgrail.com/): A resource for producers, musicians, and DJs. <br>
-[Hammock Report](https://hammockreport.com/): An API for exploring and listing backyard products. <br>
-
-Ask us to have your project listed! :)
+MIT

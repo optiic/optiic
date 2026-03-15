@@ -1,15 +1,27 @@
 {
   "name": "optiic",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "An advanced free OCR & image recognition API.",
   "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "scripts": {
-    "test": "npm run prepare && ./node_modules/mocha/bin/mocha test/ --recursive --timeout=10000",
+    "start": "npm run prepare:watch",
+    "build": "node -e \"require('prepare-package')()\"",
     "prepare": "node -e \"require('prepare-package')()\"",
-    "prepare:watch": "nodemon -w ./src -e '*' --exec 'npm run prepare'"
+    "test": "npm run build && mocha test/ --recursive --timeout=60000",
+    "prepare:watch": "node -e \"require('prepare-package/watch')()\""
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "engines": {
-    "node": ">=12"
+    "node": ">=16"
   },
   "repository": {
     "type": "git",
@@ -34,17 +46,34 @@
   "homepage": "https://optiic.dev",
   "runkitExampleFilename": "examples/process.js",
   "preparePackage": {
-    "input": "./src",
-    "output": "./dist",
+    "input": "src",
+    "output": "dist",
+    "type": "bundle",
+    "build": {
+      "formats": [
+        "esm",
+        "cjs",
+        "iife"
+      ],
+      "iife": {
+        "globalName": "Optiic",
+        "fileName": "optiic.min.js"
+      },
+      "external": [
+        "fs",
+        "form-data",
+        "wonderful-fetch"
+      ]
+    },
     "replace": {}
   },
   "dependencies": {
-    "form-data": "^3.0.1",
-    "itwcw-package-analytics": "^1.0.4",
-    "wonderful-fetch": "^1.1.12"
+    "form-data": "^4.0.5",
+    "itwcw-package-analytics": "^1.0.8",
+    "wonderful-fetch": "^2.0.1"
   },
   "devDependencies": {
-    "mocha": "^8.4.0",
-    "prepare-package": "^1.1.12"
+    "mocha": "^11.7.5",
+    "prepare-package": "^2.0.5"
   }
 }
